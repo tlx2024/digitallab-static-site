@@ -6,81 +6,83 @@ import { Button } from '../components/ui/button';
 import { Separator } from '../components/ui/separator';
 
 const About: React.FC = () => {
-  const teamMembers = [
+  const teamStats = [
     {
-      name: '张伟',
-      role: '创始人 & CEO',
-      bio: '拥有15年图像处理和计算机视觉经验，曾在多家知名科技公司担任技术负责人。',
-      avatar: 'https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20portrait%20of%20asian%20male%20CEO%20in%20business%20suit%2C%20confident%20smile%2C%20modern%20office%20background%2C%20high%20quality%20headshot&image_size=square'
+      number: '6',
+      label: '研发销售中心',
+      description: '北京、成都、东莞、苏州、台北、南安普敦'
     },
     {
-      name: '李明',
-      role: '技术总监',
-      bio: '专注于实时图像处理算法研发，在计算机视觉领域发表多篇学术论文。',
-      avatar: 'https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20portrait%20of%20asian%20male%20CTO%20with%20glasses%2C%20tech%20background%2C%20friendly%20expression%2C%20high%20quality%20headshot&image_size=square'
+      number: '300+',
+      label: '团队成员',
+      description: '10多名博士，30多名硕士等高学历人才'
     },
     {
-      name: '王芳',
-      role: '产品经理',
-      bio: '负责产品规划和用户体验设计，致力于打造最易用的数字化实验室解决方案。',
-      avatar: 'https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20portrait%20of%20asian%20female%20product%20manager%2C%20business%20attire%2C%20warm%20smile%2C%20modern%20workspace%2C%20high%20quality%20headshot&image_size=square'
+      number: '100+',
+      label: '注册知识产权',
+      description: '发明专利、软件著作、商标品牌等'
     },
     {
-      name: '陈强',
-      role: '研发工程师',
-      bio: '专业的软件开发工程师，负责DigitalLab核心功能的开发和优化。',
-      avatar: 'https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20portrait%20of%20asian%20male%20software%20engineer%2C%20casual%20shirt%2C%20coding%20setup%20background%2C%20focused%20expression%2C%20high%20quality%20headshot&image_size=square'
+      number: '150+',
+      label: '服务客户',
+      description: '中国大陆、台湾、东南亚、欧洲、北美等'
     }
+  ];
+
+  const keyClients = [
+    '库博光学', '华为', '联想', '国药集团', '威高集团',
+    '扬子江药业集团', '太极药业集团', '科伦药业', '百特侨光药业',
+    '中国商飞', '汉王', '大龙兴创'
   ];
 
   const milestones = [
     {
-      year: '2020',
+      year: '2018',
       title: '公司成立',
-      description: 'DigitalLab团队正式成立，开始专注于数字化实验室解决方案的研发。'
+      description: '平方和（北京）科技有限公司正式成立，专注于工业视觉检测系统的研发生产。'
+    },
+    {
+      year: '2019',
+      title: '技术突破',
+      description: '完成核心视觉算法研发，获得多项发明专利，建立完整的技术体系。'
+    },
+    {
+      year: '2020',
+      title: '市场拓展',
+      description: '产品正式投入市场，获得库博光学等知名企业认可，建立稳定合作关系。'
     },
     {
       year: '2021',
-      title: '产品原型',
-      description: '完成DigitalLab第一个原型版本，实现基础的图像采集和处理功能。'
+      title: '融资发展',
+      description: '完成A轮融资，引入云晖资本、博行资本等知名投资机构，加速业务发展。'
     },
     {
       year: '2022',
-      title: '正式发布',
-      description: 'DigitalLab v1.0正式发布，获得首批用户的积极反馈。'
-    },
-    {
-      year: '2023',
-      title: '功能升级',
-      description: '推出多相机支持、实时处理等高级功能，用户数量快速增长。'
+      title: '全球布局',
+      description: '在成都、东莞、苏州等地设立研发中心，服务客户遍及全球多个国家和地区。'
     },
     {
       year: '2024',
       title: '持续创新',
-      description: '不断优化产品性能，新增AI辅助分析功能，服务更多科研院所。'
+      description: '不断深化技术创新，服务华为、联想、国药集团等知名企业，行业影响力持续提升。'
     }
   ];
 
   const values = [
     {
       icon: Target,
-      title: '专业专注',
-      description: '专注于数字化实验室领域，为用户提供最专业的解决方案。'
+      title: '精致 Precise',
+      description: '从设计到制造，从部署到服务，从概念到价值，我们不断迭代，以性能与体验为宗旨，处处追求精致与完美。'
     },
     {
-      icon: Award,
-      title: '品质至上',
-      description: '严格的质量控制体系，确保每一个功能都经过充分测试和验证。'
+      icon: Lightbulb,
+      title: '创新 Innovative',
+      description: '从理论到实践，从认知到管理，从技术到产品，我们不断打磨创造、顿悟、积累，开拓奇迹、预见未来。'
     },
     {
-      icon: Users,
-      title: '用户为本',
-      description: '深入了解用户需求，持续改进产品体验，让科研工作更高效。'
-    },
-    {
-      icon: Globe,
-      title: '开放合作',
-      description: '与全球科研机构和技术伙伴合作，推动行业技术进步。'
+      icon: Heart,
+      title: '奉献 Dedicated',
+      description: '从企业到员工，从团队到个人，我们无私付出、相互成就、彼此相携、同舟共济。'
     }
   ];
 
@@ -96,7 +98,7 @@ const About: React.FC = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <Badge className="mb-6 bg-blue-500/20 text-blue-300 border-blue-500/30">
             <Building2 className="w-4 h-4 mr-2" />
-            关于DigitalLab
+            关于平方和
           </Badge>
           
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent">
@@ -104,8 +106,8 @@ const About: React.FC = () => {
           </h1>
           
           <p className="text-xl text-slate-400 max-w-4xl mx-auto leading-relaxed">
-            我们是一支专注于数字化实验室解决方案的专业团队，致力于通过先进的图像处理技术，
-            为科研工作者提供高效、精准的实验数据采集和分析工具。
+            平方和（北京）科技有限公司是一家面向全球市场，集工业视觉检测系统的研发生产、企业级云视觉服务及智能制造数据平台服务为一体的高科技中外合资企业。
+            为国家高新技术企业、中关村高新技术企业。
           </p>
         </div>
       </section>
@@ -135,9 +137,9 @@ const About: React.FC = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-300 text-lg leading-relaxed">
-                  通过创新的数字化技术，简化实验室工作流程，提高科研效率，
-                  让研究人员能够专注于核心的科学研究，而不是繁琐的数据处理工作。
-                  我们相信技术应该服务于科学，让每一个科研发现都能更快地造福人类。
+                  以工业视觉、计算机视觉和工业自动化为核心，支持云端整体计算机视觉系统的自动化解决方案，
+                  为生产制造企业提供全栈式视觉服务，包括光学成像系统设计、视觉算法定制、视觉设备定制与开发、
+                  视觉及生产数据整合等。借此帮助各行业客户提高生产效率、降低生产成本、改善产品质量。
                 </p>
               </CardContent>
             </Card>
@@ -151,9 +153,9 @@ const About: React.FC = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-300 text-lg leading-relaxed">
-                  成为全球领先的数字化实验室解决方案提供商，推动科研实验的数字化转型。
-                  我们希望DigitalLab能够成为每个实验室不可或缺的工具，
-                  为全球的科学研究贡献我们的力量。
+                  平方和秉承"创造认知、预见未来"的发展理念，以"精致、奉献、创新"为追求，
+                  坚持"用户至上、以质兴业、以优取胜"的经营宗旨，将不断以优秀的产品与服务回馈社会，
+                  与各界优势互补、共创辉煌！
                 </p>
               </CardContent>
             </Card>
@@ -179,7 +181,7 @@ const About: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value, index) => {
               const IconComponent = value.icon;
               return (
@@ -207,7 +209,7 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Company Stats Section */}
       <section className="py-20 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-950/20 to-transparent"></div>
         
@@ -215,40 +217,68 @@ const About: React.FC = () => {
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-orange-500/20 text-orange-300 border-orange-500/30">
               <Users className="w-4 h-4 mr-2" />
-              核心团队
+              公司规模
             </Badge>
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-orange-200 bg-clip-text text-transparent">
-              核心团队
+              公司规模
             </h2>
             <p className="text-xl text-slate-400">
-              我们的团队由经验丰富的技术专家和产品专家组成
+              我们在全球多个地区设有研发中心，拥有专业的技术团队
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, index) => (
+            {teamStats.map((stat, index) => (
               <Card
                 key={index}
                 className="bg-white/5 border-white/10 backdrop-blur-sm text-center group hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"
               >
                 <CardHeader>
-                  <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-4 border-blue-500/30 group-hover:border-purple-500/50 transition-colors duration-300">
-                    <img
-                      src={member.avatar}
-                      alt={member.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
+                  <div className="text-4xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text mb-2 group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
+                    {stat.number}
                   </div>
                   <CardTitle className="text-xl text-white group-hover:text-purple-200 transition-colors">
-                    {member.name}
+                    {stat.label}
                   </CardTitle>
-                  <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 group-hover:bg-purple-500/20 group-hover:text-purple-300 group-hover:border-purple-500/30 transition-all duration-300">
-                    {member.role}
-                  </Badge>
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-300 text-sm group-hover:text-slate-200 transition-colors">
-                    {member.bio}
+                    {stat.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Key Clients Section */}
+      <section className="py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-green-500/20 text-green-300 border-green-500/30">
+              <Globe className="w-4 h-4 mr-2" />
+              合作伙伴
+            </Badge>
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-green-200 bg-clip-text text-transparent">
+              重要客户
+            </h2>
+            <p className="text-xl text-slate-400">
+              我们与众多知名企业建立了深度合作关系
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {keyClients.map((client, index) => (
+              <Card
+                key={index}
+                className="bg-white/5 border-white/10 backdrop-blur-sm text-center group hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-green-500/20"
+              >
+                <CardContent className="p-6">
+                  <p className="text-white font-semibold group-hover:text-green-200 transition-colors">
+                    {client}
                   </p>
                 </CardContent>
               </Card>
@@ -344,37 +374,61 @@ const About: React.FC = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="flex items-center group hover:bg-white/5 p-3 rounded-lg transition-colors">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                    <Mail className="w-6 h-6 text-white" />
+                <div className="space-y-4">
+                  <div className="flex items-start group hover:bg-white/5 p-3 rounded-lg transition-colors">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white group-hover:text-blue-200 transition-colors">北京总部</h3>
+                      <p className="text-slate-300 group-hover:text-slate-200 transition-colors text-sm">
+                        地址：北京市海淀区北清路81号中关村壹号A1座12层<br/>
+                        邮编：100094<br/>
+                        电话：010-62456964
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white group-hover:text-blue-200 transition-colors">邮箱地址</h3>
-                    <p className="text-slate-300 group-hover:text-slate-200 transition-colors">contact@digitallab.com</p>
+                  
+                  <div className="flex items-start group hover:bg-white/5 p-3 rounded-lg transition-colors">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-blue-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white group-hover:text-green-200 transition-colors">东莞制造中心</h3>
+                      <p className="text-slate-300 group-hover:text-slate-200 transition-colors text-sm">
+                        地址：东莞市寮步沿河北路7号松湖智谷科创中心D1栋7层<br/>
+                        邮编：523412<br/>
+                        电话：0769-22279096
+                      </p>
+                    </div>
                   </div>
-                </div>
-                
-                <Separator className="bg-white/10" />
-                
-                <div className="flex items-center group hover:bg-white/5 p-3 rounded-lg transition-colors">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-blue-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                    <Phone className="w-6 h-6 text-white" />
+                  
+                  <div className="flex items-start group hover:bg-white/5 p-3 rounded-lg transition-colors">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white group-hover:text-purple-200 transition-colors">成都研发中心</h3>
+                      <p className="text-slate-300 group-hover:text-slate-200 transition-colors text-sm">
+                        地址：成都市高新区天府大道北段869号数字经济大厦11层1106室<br/>
+                        邮编：610000<br/>
+                        电话：028-63918511
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white group-hover:text-green-200 transition-colors">联系电话</h3>
-                    <p className="text-slate-300 group-hover:text-slate-200 transition-colors">+86 400-123-4567</p>
-                  </div>
-                </div>
-                
-                <Separator className="bg-white/10" />
-                
-                <div className="flex items-center group hover:bg-white/5 p-3 rounded-lg transition-colors">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white group-hover:text-purple-200 transition-colors">公司地址</h3>
-                    <p className="text-slate-300 group-hover:text-slate-200 transition-colors">北京市海淀区中关村科技园区</p>
+                  
+                  <div className="flex items-start group hover:bg-white/5 p-3 rounded-lg transition-colors">
+                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform flex-shrink-0">
+                      <Globe className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white group-hover:text-cyan-200 transition-colors">英国研发中心</h3>
+                      <p className="text-slate-300 group-hover:text-slate-200 transition-colors text-sm">
+                        C Squared Visions Ltd.<br/>
+                        Innovation Centre, Southampton Science Park,<br/>
+                        2 Venture Road, Chilworth, Southampton, SO16 7NP, UK
+                      </p>
+                    </div>
                   </div>
                 </div>
                 

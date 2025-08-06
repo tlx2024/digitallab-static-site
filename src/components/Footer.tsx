@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Heart } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Heart } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -36,10 +36,10 @@ const Footer: React.FC = () => {
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">DL</span>
               </div>
-              <span className="text-white font-bold text-xl">DigitalLab</span>
+              <span className="text-white font-bold text-xl">数字投影仪</span>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed">
-              专注于数字化实验室解决方案，为科研工作者提供高效、精准的实验数据采集和分析工具。
+              专业的数字投影仪解决方案，为工业检测、科研实验和精密测量提供高精度的光学投影技术。
             </p>
             <div className="flex space-x-4">
               <a
@@ -48,20 +48,6 @@ const Footer: React.FC = () => {
                 aria-label="GitHub"
               >
                 <Github className="w-4 h-4 text-white" />
-              </a>
-              <a
-                href="#"
-                className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4 text-white" />
-              </a>
-              <a
-                href="#"
-                className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>
@@ -106,15 +92,15 @@ const Footer: React.FC = () => {
             <div className="space-y-3">
               <div className="flex items-center text-slate-300 text-sm">
                 <Mail className="w-4 h-4 mr-2 flex-shrink-0" />
-                <span>contact@digitallab.com</span>
+                <span>info@sigmasquares.com</span>
               </div>
               <div className="flex items-center text-slate-300 text-sm">
                 <Phone className="w-4 h-4 mr-2 flex-shrink-0" />
-                <span>+86 400-123-4567</span>
+                <span>028-63918511</span>
               </div>
               <div className="flex items-start text-slate-300 text-sm">
                 <MapPin className="w-4 h-4 mr-2 flex-shrink-0 mt-0.5" />
-                <span>北京市海淀区中关村科技园区</span>
+                <span>成都市高新区天府大道北段869号数字经济大厦11层1106室</span>
               </div>
             </div>
           </div>
@@ -138,9 +124,9 @@ const Footer: React.FC = () => {
 
             {/* Copyright */}
             <div className="flex items-center text-slate-400 text-xs">
-              <span>&copy; {currentYear} DigitalLab. 保留所有权利.</span>
+              <span>&copy; {currentYear} 成都平方和科技有限公司. 保留所有权利.</span>
               <Heart className="w-3 h-3 mx-2 text-red-500" />
-              <span>用心打造</span>
+              <span>精工制造</span>
             </div>
           </div>
         </div>
