@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
-import { Download, Calendar, FileText, HardDrive, Star, Clock, ChevronDown, ChevronUp } from 'lucide-react';
-import { staticVersions, getLatestVersion, Version } from '../data/versions';
+import React, { useState, useEffect } from 'react';
+import { Download, Calendar, FileText, HardDrive, Star, Clock, ChevronDown, ChevronUp, Monitor, Smartphone } from 'lucide-react';
+import { staticVersions, getLatestVersion, Version, PlatformDownload } from '../data/versions';
+import { getPlatformInfo, PlatformInfo, PlatformType } from '../utils/platformDetection';
 
 const Downloads: React.FC = () => {
   const [expandedChangelog, setExpandedChangelog] = useState<string | null>(null);
+  const [platformInfo, setPlatformInfo] = useState<PlatformInfo | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<PlatformType>('Windows');
   const versions = staticVersions;
   const latestVersion = getLatestVersion();
+
+  useEffect(() => {
+    const info = getPlatformInfo();
+    setPlatformInfo(info);
+    setSelectedPlatform(info.platform !== 'Unknown' ? info.platform : 'Windows');
+  }, []);
 
   const formatDate = (dateString: string): string => {
     return new Date(dateString).toLocaleDateString('zh-CN', {
@@ -19,6 +28,42 @@ const Downloads: React.FC = () => {
     setExpandedChangelog(expandedChangelog === versionId ? null : versionId);
   };
 
+  // 获取指定平台的下载链接
+  const getPlatformDownload = (version: Version, platform: PlatformType): PlatformDownload | null => {
+    if (!version.platform_downloads) return null;
+    return version.platform_downloads.find(pd => pd.platform === platform) || null;
+  };
+
+  // 获取当前选择平台的下载URL和文件大小
+  const getCurrentPlatformInfo = (version: Version) => {
+    const platformDownload = getPlatformDownload(version, selectedPlatform);
+    if (platformDownload) {
+      return {
+        downloadUrl: platformDownload.download_url,
+        fileSize: platformDownload.file_size
+      };
+    }
+    // 回退到默认下载链接
+    return {
+      downloadUrl: version.download_url,
+      fileSize: version.file_size
+    };
+  };
+
+  // 获取平台图标
+  const getPlatformIcon = (platform: PlatformType) => {
+    switch (platform) {
+      case 'Windows':
+        return '🪟';
+      case 'macOS':
+        return '🍎';
+      case 'Linux':
+        return '🐧';
+      default:
+        return '💻';
+    }
+  };
+
   return (
     <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
       {/* Header */}
@@ -28,6 +73,39 @@ const Downloads: React.FC = () => {
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             下载 DigitalLab 的最新版本和历史版本，查看详细的更新日志和版本说明
           </p>
+        </div>
+      </section>
+
+      {/* Platform Selector */}
+      <section className="py-8">
+        <div className="container mx-auto px-4">
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 mb-8">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-semibold text-white mb-2">选择您的操作系统</h3>
+              {platformInfo && (
+                <p className="text-slate-300 text-sm">
+                  检测到您的系统: {getPlatformIcon(platformInfo.platform)} {platformInfo.platform} ({platformInfo.architecture})
+                </p>
+              )}
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-4">
+              {(['Windows', 'Linux', 'macOS'] as PlatformType[]).map((platform) => (
+                <button
+                  key={platform}
+                  onClick={() => setSelectedPlatform(platform)}
+                  className={`flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                    selectedPlatform === platform
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : 'bg-white/10 text-slate-300 hover:bg-white/20 hover:text-white'
+                  }`}
+                >
+                  <span className="mr-2 text-lg">{getPlatformIcon(platform)}</span>
+                  {platform}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -51,15 +129,19 @@ const Downloads: React.FC = () => {
                 </div>
                 <div className="flex items-center">
                   <HardDrive className="w-5 h-5 mr-2" />
-                  {latestVersion.file_size}
+                  {getCurrentPlatformInfo(latestVersion).fileSize}
+                </div>
+                <div className="flex items-center">
+                  <Monitor className="w-5 h-5 mr-2" />
+                  {getPlatformIcon(selectedPlatform)} {selectedPlatform}
                 </div>
               </div>
               <a
-                href={latestVersion.download_url}
+                href={getCurrentPlatformInfo(latestVersion).downloadUrl}
                 className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 <Download className="w-5 h-5 mr-2" />
-                立即下载
+                立即下载 ({selectedPlatform})
               </a>
             </div>
           </div>
@@ -98,7 +180,11 @@ const Downloads: React.FC = () => {
                         </div>
                         <div className="flex items-center">
                           <HardDrive className="w-4 h-4 mr-1" />
-                          {version.file_size}
+                          {getCurrentPlatformInfo(version).fileSize}
+                        </div>
+                        <div className="flex items-center">
+                          <Monitor className="w-4 h-4 mr-1" />
+                          {getPlatformIcon(selectedPlatform)} {selectedPlatform}
                         </div>
                       </div>
                       
@@ -122,11 +208,11 @@ const Downloads: React.FC = () => {
                       </button>
                       
                       <a
-                        href={version.download_url}
+                        href={getCurrentPlatformInfo(version).downloadUrl}
                         className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105"
                       >
                         <Download className="w-4 h-4 mr-2" />
-                        下载
+                        下载 ({selectedPlatform})
                       </a>
                     </div>
                   </div>
