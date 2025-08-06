@@ -1,0 +1,55 @@
+# Dependencies
+node_modules
+.pnpm-store
+pnpm-lock.yaml
+
+# Development files
+src
+.eslintrc*
+.eslintcache
+tsconfig.json
+vite.config.ts
+tailwind.config.js
+postcss.config.js
+
+# Documentation
+README.md
+
+# IDE
+.vscode
+.idea
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment
+.env*
+
+# Testing
+coverage
+.nyc_output
+
+# Cache
+.cache
+.parcel-cache
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# GitHub
+.github
+
+# Temporary
+tmp
+temp
+*.tmp
+*.temp

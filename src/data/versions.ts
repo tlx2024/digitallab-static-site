@@ -1,7 +1,9 @@
 // 静态版本数据，用于替代API调用
+import { PlatformType, ArchitectureType } from '../utils/platformDetection';
+
 export interface PlatformDownload {
-  platform: 'Windows' | 'Linux' | 'macOS';
-  architecture: 'x64' | 'ARM64';
+  platform: PlatformType;
+  architecture: ArchitectureType;
   download_url: string;
   file_size: string;
   file_extension: string;
