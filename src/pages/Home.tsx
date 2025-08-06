@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Download, Camera, Image, Ruler, RefreshCw, ArrowRight, Star, Users, Shield, Zap, Target, Cpu } from 'lucide-react';
-import { useVersionStore } from '../store/useVersionStore';
+import { getLatestVersion } from '../data/versions';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
@@ -52,13 +52,12 @@ const ParticleBackground: React.FC = () => {
 };
 
 const Home: React.FC = () => {
-  const { latestVersion, fetchLatestVersion, isLoading } = useVersionStore();
   const [isVisible, setIsVisible] = useState(false);
+  const latestVersion = getLatestVersion();
 
   useEffect(() => {
-    fetchLatestVersion();
     setIsVisible(true);
-  }, [fetchLatestVersion]);
+  }, []);
 
   const features = [
     {
@@ -170,9 +169,9 @@ const Home: React.FC = () => {
                   size="lg"
                   className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 text-lg font-semibold shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 transform hover:scale-105"
                 >
-                  <a href={`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api'}/downloads/file/${latestVersion.id}`}>
+                  <a href={latestVersion.download_url}>
                     <Download className="w-5 h-5 mr-2" />
-                    立即下载 v{latestVersion.version_number}
+                    立即下载 {latestVersion.version}
                   </a>
                 </Button>
               )}
@@ -204,7 +203,7 @@ const Home: React.FC = () => {
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-slate-400 mb-4">
-                    文件大小: {formatFileSize(latestVersion.file_size)}
+                    文件大小: {latestVersion.file_size}
                   </p>
                   <Button
                     asChild
