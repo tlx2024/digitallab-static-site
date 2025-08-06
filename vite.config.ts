@@ -6,7 +6,7 @@ import { traeBadgePlugin } from 'vite-plugin-trae-solo-badge';
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   // GitHub Pages部署配置
-  base: mode === 'production' ? '/digitallab-website/' : '/',
+  base: mode === 'production' ? '/digitallab-static-site/' : '/',
   plugins: [
     react(),
     traeBadgePlugin({
