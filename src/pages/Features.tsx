@@ -15,7 +15,7 @@ const Features: React.FC = () => {
         '多相机同步采集',
         '相机参数实时调节'
       ],
-      image: 'https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20industrial%20cameras%20setup%20with%20multiple%20camera%20units%20connected%20to%20computer%20system%2C%20modern%20technology%2C%20blue%20lighting%2C%20clean%20background&image_size=landscape_4_3'
+      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop&crop=center'
     },
     {
       icon: Image,
@@ -29,7 +29,7 @@ const Features: React.FC = () => {
         '图像几何校正',
         '批量图像处理'
       ],
-      image: 'https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=real-time%20image%20processing%20interface%20with%20multiple%20image%20filters%20and%20enhancement%20tools%2C%20digital%20technology%2C%20blue%20theme%2C%20professional%20software&image_size=landscape_4_3'
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center'
     },
     {
       icon: Ruler,
@@ -43,7 +43,7 @@ const Features: React.FC = () => {
         '标定参数保存管理',
         '测量数据导出功能'
       ],
-      image: 'https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=precision%20measurement%20and%20calibration%20system%20with%20rulers%20and%20measurement%20tools%2C%20industrial%20application%2C%20blue%20technology%20theme&image_size=landscape_4_3'
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop&crop=center'
     },
     {
       icon: RefreshCw,
@@ -57,7 +57,7 @@ const Features: React.FC = () => {
         '更新日志详细记录',
         '网络断点续传'
       ],
-      image: 'https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=software%20update%20system%20interface%20with%20download%20progress%20and%20version%20management%2C%20modern%20UI%2C%20blue%20technology%20style&image_size=landscape_4_3'
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&crop=center'
     }
   ];
 
@@ -112,7 +112,7 @@ const Features: React.FC = () => {
           {mainFeatures.map((feature, index) => {
             const IconComponent = feature.icon;
             const isEven = index % 2 === 0;
-            
+
             return (
               <div key={index} className={`mb-20 ${index !== mainFeatures.length - 1 ? 'border-b border-white/10 pb-20' : ''}`}>
                 <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}>
@@ -124,11 +124,11 @@ const Features: React.FC = () => {
                       </div>
                       <h2 className="text-3xl font-bold text-white">{feature.title}</h2>
                     </div>
-                    
+
                     <p className="text-lg text-slate-300 mb-8 leading-relaxed">
                       {feature.description}
                     </p>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {feature.details.map((detail, detailIndex) => (
                         <div key={detailIndex} className="flex items-center">
@@ -138,7 +138,7 @@ const Features: React.FC = () => {
                       ))}
                     </div>
                   </div>
-                  
+
                   {/* Image */}
                   <div className="flex-1">
                     <div className="relative">
@@ -166,7 +166,7 @@ const Features: React.FC = () => {
               除了核心功能外，DigitalLab 还提供众多实用特性，提升您的工作效率
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {additionalFeatures.map((feature, index) => {
               const IconComponent = feature.icon;
@@ -199,7 +199,7 @@ const Features: React.FC = () => {
                 确保您的系统满足以下要求，以获得最佳使用体验
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white/5 rounded-xl p-6">
                 <h3 className="text-xl font-semibold text-white mb-4">操作系统</h3>
@@ -209,7 +209,7 @@ const Features: React.FC = () => {
                   <li>• macOS 10.15+</li>
                 </ul>
               </div>
-              
+
               <div className="bg-white/5 rounded-xl p-6">
                 <h3 className="text-xl font-semibold text-white mb-4">硬件要求</h3>
                 <ul className="space-y-2 text-slate-300">
@@ -219,7 +219,7 @@ const Features: React.FC = () => {
                   <li>• 存储: 2GB 可用空间</li>
                 </ul>
               </div>
-              
+
               <div className="bg-white/5 rounded-xl p-6">
                 <h3 className="text-xl font-semibold text-white mb-4">网络要求</h3>
                 <ul className="space-y-2 text-slate-300">
